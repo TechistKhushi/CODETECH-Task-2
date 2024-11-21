@@ -9,7 +9,7 @@ Project Description
 This is a simple To-Do List web application built using HTML, CSS, and JavaScript. It allows users to add, mark as completed, and delete tasks from a to-do list. The tasks are dynamically rendered as list items, and each item can be toggled between completed and active states. Users can also remove tasks they no longer need.
 
 Screenshot:
-![to do list](https://github.com/user-attachments/assets/9ab31e63-886a-4fb6-b321-600e71035a8e)
+![to-do](https://github.com/user-attachments/assets/78af2f75-f7f2-4690-85c6-aaa76771307a)
 
 Features:
 Add tasks: Users can enter new tasks and add them to the list.
