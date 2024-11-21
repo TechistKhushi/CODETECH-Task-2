@@ -1,0 +1,173 @@
+// Html code(index.html)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="todo-container">
+        <h1>To-Do List</h1>
+        <input type="text" id="todo-input" placeholder="Add a new task..." />
+        <button id="add-btn">Add</button>
+        <ul id="todo-list"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+  // CSS Code (style.css)
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.todo-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+#todo-input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+li {
+    padding: 10px;
+    background-color: #f4f4f4;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: #777;
+}
+
+.delete-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.delete-btn:hover {
+    background-color: darkred;
+}
+
+.check-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.check-btn:hover {
+    background-color: darkgreen;
+}
+
+
+  // JS Code(script.js)
+  // Get elements
+const todoInput = document.getElementById('todo-input');
+const addBtn = document.getElementById('add-btn');
+const todoList = document.getElementById('todo-list');
+
+// Add Task
+addBtn.addEventListener('click', function() {
+    const taskText = todoInput.value.trim();
+    if (taskText === '') {
+        alert('Please enter a task!');
+        return;
+    }
+
+    // Create a new list item
+    const li = document.createElement('li');
+    li.classList.add('task-item');
+
+    // Create the check button
+    const checkBtn = document.createElement('button');
+    checkBtn.textContent = '✔️';
+    checkBtn.classList.add('check-btn');
+    checkBtn.addEventListener('click', () => {
+        li.classList.toggle('completed');
+    });
+
+    // Create the delete button
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = '❌';
+    deleteBtn.classList.add('delete-btn');
+    deleteBtn.addEventListener('click', () => {
+        li.remove();
+    });
+
+    // Add the task text and buttons to the list item
+    li.textContent = taskText;
+    li.prepend(checkBtn);
+    li.appendChild(deleteBtn);
+
+    // Append the new task to the list
+    todoList.appendChild(li);
+
+    // Clear input field
+    todoInput.value = '';
+});
+
+
+  
+
+  
